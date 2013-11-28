@@ -1,12 +1,12 @@
 # Auto-chargement de classes
 
-Kohana tire partie de la fonctionnalité PHP d'[auto-chargement de classes](http://php.net/manual/fr/language.oop5.autoload.php) permettant de s'affranchir des inclusions manuelles avec [include](http://de.php.net/manual/fr/function.include.php) ou [require](http://de.php.net/manual/fr/function.require.php).
+Kohana tire parti de la fonctionnalité PHP d'[auto-chargement de classes](http://php.net/manual/fr/language.oop5.autoload.php) permettant de s'affranchir des inclusions manuelles avec [include](http://de.php.net/manual/fr/function.include.php) ou [require](http://de.php.net/manual/fr/function.require.php).
 
-Les classes sont chargées via la méthode [Kohana::auto_load], qui à partir du nom d'une classe, retrouve le fichier associé:
+Les classes sont chargées par la méthode [Kohana::auto_load], qui, à partir du nom d'une classe, retrouve le fichier associé:
 
 1. Les classes sont placées dans le répertoire `classes/` de l'[arborescence de fichiers](about.filesystem)
 2. Les caractères underscore '_' sont convertis en slashes '/'
-2. Les noms de fichier doivent être en minuscule
+2. Les noms de fichier doivent être en minuscules
 
 Lors de l'appel à une classe non chargée (eg: `Session_Cookie`), Kohana recherchera dans son arboresence via la méthode [Kohana::find_file] le fichier `classes/session/cookie.php`.
 
