@@ -4,7 +4,7 @@
 
 ## Configuration du noyau
 
-La toute première configuration à modifier lors d'une installation de kohana est de changer les paramètres d'initlalisation [Kohana::init] dans le fichier `application/bootstrap.php`. Ces paramètres sont:
+La toute première configuration à définir lors d'une installation de Kohana est de changer les paramètres d'initlalisation [Kohana::init] dans le fichier `application/bootstrap.php`. Ces paramètres sont:
 
 `boolean` errors
 :   Utilisation de la gestion des erreurs et des exceptions? (Défaut `TRUE`) Affecter à `FALSE` pour désactiver
@@ -12,7 +12,7 @@ La toute première configuration à modifier lors d'une installation de kohana e
 
 `boolean` profile
 :   Activer le  benchmarking interne? (Défault `TRUE`) Affecter à `FALSE` pour désactiver le benchmarking interne.
-    A desactiver en production pour obtenir de meilleures performances.
+    A désactiver en production pour obtenir de meilleures performances.
 
 `boolean` caching
 :   Mettre en cache les chemins des fichiers entre les requêtes? (Défault `FALSE`)  Affecter à `TRUE` pour mettre en cache
@@ -32,10 +32,10 @@ La toute première configuration à modifier lors d'une installation de kohana e
 
 ## Paramètres des Cookies
 
-Il y a plusieurs propriétés statiques dans la classe [Cookie] qui doivent être paramétrées, particuliérement sur les sites en production.
+Il y a plusieurs propriétés statiques dans la classe [Cookie] qui doivent être paramétrées, particulièrement sur les sites en production.
 
 `string` salt
-:   La chaîne d'aléa (salt) unique utilisée pour [signer les cookies](security.cookies)
+:   La chaîne de salage (salt) unique utilisée pour [signer les cookies](security.cookies)
 
 `integer` expiration
 :   La durée d'expiration par défaut 
@@ -54,7 +54,7 @@ Il y a plusieurs propriétés statiques dans la classe [Cookie] qui doivent êtr
 
 # Fichiers de configuration
 
-La configuration de Kohana est faite dans des fichiers à plat PHP, qui ressemblent à l'exemple ci-dessous:
+La configuration de Kohana se faite par l'intermédiaire de fichiers plats PHP, qui ressemblent à l'exemple ci-dessous:
 
 ~~~
 <?php defined('SYSPATH') or die('No direct script access.');
