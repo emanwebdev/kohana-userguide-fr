@@ -1,26 +1,26 @@
-#Controleurs
+#ContrÃ´leurs
 
-Dans une application MVC, les Controleurs se placent entre les Modèles et les Vues. Ils passent l'information aux modèles lorsque les données nécessitent des traitements et ils demandent l'information nécessaire aux modèles. Les Controleurs transmettent les informations du Modèle aux Vues qui ciontiennent le code à afficher aux utilisateurs.
+Dans une application MVC, les ContrÃ´leurs se placent entre les Modules et les Vues. Ils passent l'information aux modÃ¨les lorsque les donnÃ©es nÃ©cessitent des traitements et ils demandent l'information nÃ©cessaire aux modules. Les ContrÃ´leurs transmettent les informations du ModÃ¨le aux Vues qui contiennent le code Ã  afficher aux utilisateurs.
 
-Les controleurs sont appelés par rapport à l'URL appelée, pour plus d'informations consulter la documentation sur [les URLs et les Liens](about.urls).
+Les contrÃ´leurs sont appelÃ©s par rapport Ã  l'URL appelÃ©e, pour plus d'informations consulter la documentation sur [les URLs et les Liens](about.urls).
 
-## Nommage des controleurs et fonctionnement
+## Nommage des contrÃ´leurs et fonctionnement
 
-Le nom d'un controleur doit correspondre exactement au nom de fichier.
+Le nom d'un contrÃ´leur doit correspondre exactement au nom de fichier.
 
-**Conventions d'écriture**
+**Conventions d'Ã©criture**
 
-* les nom de fichiers des controleurs doivent être en minuscule, e.g. `articles.php`
-* ils doivent être situés dans le (sous-)dossier **classes/controller**, e.g. `classes/controller/articles.php`
-* la classe du controleur doit correspondre au fichier, commencer par une majuscule et être préfixée par **Controller_**, e.g. `Controller_Articles`
-* elle doit hérité de la classe Controller
-* les méthodes du controleur doivent être précédées de **action_** (e.g. `action_do_something()` ) pour pouvoir être appelées par rapport à l'URL
+* les nom de fichiers des contrÃ´leurs doivent ï¿½tre en minuscule, e.g. `articles.php`
+* ils doivent ï¿½tre situÃ©s dans le (sous-)dossier **classes/controller**, e.g. `classes/controller/articles.php`
+* la classe du contrÃ´leur doit correspondre au fichier, commencer par une majuscule et ï¿½tre prÃ©fixÃ©e par **Controller_**, e.g. `Controller_Articles`
+* elle doit hÃ©ritÃ©e de la classe Controller
+* les mÃ©thodes du contrÃ´leur doivent ï¿½tre prÃ©cÃ©dÃ©es de **action_** (e.g. `action_do_something()` ) pour pouvoir ï¿½tre appelÃ©es par rapport Ã  l'URL
 
 
 
-### Un controleur simple
+### Un contrÃ´leur simple
 
-Ci-dessous un exemple de controleur qui affiche Hello World à l'écran.
+Ci-dessous un exemple de contrÃ´leur qui affiche Hello World Ã  l'Ã©cran.
 
 **application/classes/controller/article.php**
 ~~~
@@ -34,19 +34,19 @@ class Controller_Article extends Controller
     }
 }
 ~~~
-Si vous entrez alors l'URL yoursite.com/article dans votre navigateur (ou yoursite.com/index.php/article sans URL rewritting) vous devriez voir apparaître:
+Si vous entrez alors l'URL yoursite.com/article dans votre navigateur (ou yoursite.com/index.php/article sans URL rewritting) vous devriez voir apparaï¿½tre:
 ~~~
 Hello World
 ~~~
-C'est tout pour votre premier controleur. Toutes les conventions ont été appliquées.
+C'est tout pour votre premier contrÃ´leur. Toutes les conventions ont Ã©tÃ© appliquÃ©es.
 
 
 
-### Un controleur plus avancé
+### Un contrÃ´leur plus avancÃ©
 
-Dans l'exemple ci-dessus la méthode `index()` est appelée par l'URL yoursite.com/article. Si le second segment de l'URL est vide, la méthode index est appelée par défaut. Elle pourrait aussi être appelée en entrant l'URL yoursite.com/article/index.
+Dans l'exemple ci-dessus la mÃ©thode `index()` est appelÃ©e par l'URL yoursite.com/article. Si le second segment de l'URL est vide, la mÃ©thode index est appelÃ©e par dÃ©faut. Elle pourrait aussi ï¿½tre appelÃ©e en entrant l'URL yoursite.com/article/index.
 
-_Si le second segment de l'URL n'est pas vide, il détermine la méthode dub controleur à appeler._
+_Si le second segment de l'URL n'est pas vide, il dÃ©termine la mÃ©thode du contrÃ´leur Ã  appeler._
 
 **application/classes/controller/article.php**
 ~~~
@@ -63,17 +63,17 @@ class Controller_Article extends Controller
     }
 }
 ~~~
-Maintenant, si vous entrez l'URL yoursite.com/article/overview vous devriez voir apparaître:
+Maintenant, si vous entrez l'URL yoursite.com/article/overview vous devriez voir apparaï¿½tre:
 ~~~
 Article list goes here!
 ~~~
 
 
-### Un controleur avec des arguments
+### Un contrÃ´leur avec des arguments
 
-Imaginons que l'on souhaite afficher un article particulier, identifié par l'id `1` et le titre `your-article-title`.
+Imaginons que l'on souhaite afficher un article particulier, identifiï¿½ par l'id `1` et le titre `your-article-title`.
 
-L'URL ressemblerait alors à yoursite.com/article/view/**your-article-title/1**. Les 2 derniers segments sont passées à la méthode view() du controleur.
+L'URL ressemblerait alors ï¿½ yoursite.com/article/view/**your-article-title/1**. Les 2 derniers segments sont passï¿½es ï¿½ la mï¿½thode view() du contrÃ´leur.
 
 **application/classes/controller/article.php**
 ~~~
@@ -96,7 +96,7 @@ class Controller_Article extends Controller
     }
 }
 ~~~
-Si vous appelez yoursite.com/article/view/**your-article-title/1** vous devriez voir apparaître:
+Si vous appelez yoursite.com/article/view/**your-article-title/1** vous devriez voir apparaï¿½tre:
 ~~~
 1 - your-article-title
 ~~~
