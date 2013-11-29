@@ -4,7 +4,7 @@ Ce chapitre fournit les bases permettant de comprendre la logique de traitement 
 
 ## Routage
 
-Comment évoqué dans le chapitre [processus de traitement des requêtes](about.flow), une requête est traitée par la classe [Request] qui tente de trouver une [Route] correspondante et charge les méthodes appropriées du controleur qui permettront de traiter la requete.
+Comment évoqué dans le chapitre [processus de traitement des requêtes](about.flow), une requête est traitée par la classe [Request] qui tente de trouver une [Route] correspondante et charge les méthodes appropriées du contrôleur qui permettront de traiter cette requête.
 
 Si vous regardez le fichier `APPPATH/bootstrap.php` vous pouvez voir le code ci-dessous qui est exécuté juste avant que la requête ne soit traitée par [Request::instance]:
 
@@ -14,13 +14,13 @@ Si vous regardez le fichier `APPPATH/bootstrap.php` vous pouvez voir le code ci-
         'action'     => 'index',
       ));
 
-Ce code crée une route appelée `default` dont l'URI doit avoir le format `(<controller>(/<action>(/<id>)))`. Les éléments entourés par `<>` sont des *clés* et ceux entourés par `()` définissent les parties *optionnelles* de l'URI. Dans le code ci-dessus , l'URI entière est optionnelles ce qui signifie que même une URI vide serait traitée en utilisant les valeurs par défaut spécifiées dans la route. Cela se traduirait par le chargement de la classe `Controller_Welcome` et l'exécution de sa méthode `action_index` pour traiter la requête.
+Ce code crée une route appelée `default` dont l'URI doit avoir le format `(<controller>(/<action>(/<id>)))`. Les éléments entourés par `<>` sont des *clés* et ceux entourés par `()` définissent les parties *optionnelles* de l'URI. Dans le code ci-dessus , l'URI entière est optionnelle ce qui signifie que même une URI vide est traitée en utilisant les valeurs par défaut spécifiées dans la route. Cela se traduit par le chargement de la classe `Controller_Welcome` et l'exécution de sa méthode `action_index` pour traiter la requête.
 
-A noter que les routes de Kohana peuvent contenir tous caractères exceptés `()<>`. Dans la route ci-dessus le caractère `/` est utilisé comme séparateur mais tant que l'expression matche l'URI demandée il n'y a aucune restriction sur le format des routes.
+A noter que les routes de Kohana peuvent contenir tous caractères exceptés `()<>`. Dans la route ci-dessus le caractère `/` est utilisé comme séparateur mais tant que l'expression correspond à l'URI demandée il n'y a aucune restriction sur le format des routes.
 
 ### Répertoires
 
-Par soucis d'organisation, il est commun de vouloir organiser certains de vos controleurs dans des sous-répertoires. Par exemple pour grouper votre section d'administration (tout vos controleurs d'administration) de votre site dans un sous-répertoire admin:
+Par soucis d'organisation, il est commun de vouloir organiser certains de vos contrôleurs dans des sous-répertoires. Par exemple pour grouper votre section d'administration (tous vos contrôleurs d'administration) de votre site dans un sous-répertoire admin:
 
     Route::set('admin', 'admin(/<controller>(/<action>(/<id>)))')
       ->defaults(array(
@@ -29,13 +29,13 @@ Par soucis d'organisation, il est commun de vouloir organiser certains de vos co
         'action'     => 'index',
       ));
 
-Cette route indique qu'il faut que l'URI commence obligatoirement par `admin` pour matcher. Le sous-répertoire est statiquement assigné à `admin` dans les paramètres par défaut. De cette manière, la requête `admin/users/create` chargera la classe `Controller_Admin_Users` et appellera la méthode `action_create`.
+Cette route indique qu'il faut que l'URI commence obligatoirement par `admin`. Le sous-répertoire est statiquement assigné à `admin` dans les paramètres par défaut. De cette manière, la requête `admin/users/create` chargera la classe `Controller_Admin_Users` et appellera la méthode `action_create`.
 
 ### Expressions régulières
 
-Le système de routage de Kohana utilise des expressions régulière compatible Perl. Par défaut les clés (entourées par `<>`) sont matchées par l'expression `[a-zA-Z0-9_]++` mais vous pouvez définir vos propres expressions pour chacunes des clés en passant un tableau associatif de clés et d'expressions comme paramètre additionnel de la méthode [Route::set]. 
+Le système de routage de Kohana utilise des expressions régulières compatibles Perl. Par défaut les clés (entourées par `<>`) sont matchées par l'expression `[a-zA-Z0-9_]++` mais vous pouvez définir vos propres expressions pour chacunes des clés en passant un tableau associatif de clés et d'expressions comme paramètre additionnel de la méthode [Route::set]. 
 
-Par exemple, imaginons qu'en plus d'une section administration, votre site contient une section blog dont les controleurs sont situés dans un sous-répertoire blog. Alors vous pouvez soit écrire 2 routes distinctes ou bien tout simplement faire:
+Par exemple, imaginons qu'en plus d'une section administration, votre site contient une section blog dont les contrôleurs sont situés dans un sous-répertoire blog. Alors vous pouvez soit écrire 2 routes distinctes ou bien tout simplement faire:
 
     Route::set('sections', '<directory>(/<controller>(/<action>(/<id>)))',
       array(
@@ -46,7 +46,7 @@ Par exemple, imaginons qu'en plus d'une section administration, votre site conti
         'action'     => 'index',
       ));
       
-Cette route vous permet donc d'avoir 2 sections, 'admin' et 'blog' et d'organiser les controleurs dans des sous-répertoires distincts.
+Cette route vous permet donc d'avoir 2 sections, 'admin' et 'blog' et d'organiser les contrôleurs dans des sous-répertoires distincts.
 
 ### Exemples de routes
 
@@ -119,7 +119,7 @@ De plus cela implique qu'il faut faire attention si vous définissez des routes 
       
 ### Paramétres des requêtes
 
-Le répertoire (directory), le controleur (controller) et l'action sont accessibles à travers l'instance [Request] d'une des 2 manières suivantes:
+Le répertoire (directory), le contrôleur (controller) et l'action sont accessibles à travers l'instance [Request] d'une des 2 manières suivantes:
 
     $this->request->action;
     Request::instance()->action;
