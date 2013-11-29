@@ -1,8 +1,8 @@
 # ORM {#top}
 
-Kohana 3.0 inclus un module [ORM](http://en.wikipedia.org/wiki/Object-relational_mapping) puissant utilisant le pattern active record et l'introspection de base de données pour déterminer les informations sur les colonnes d'un modèle.
+Kohana 3 inclus un module [ORM](http://en.wikipedia.org/wiki/Object-relational_mapping) puissant utilisant le pattern active record et l'introspection de base de données pour déterminer les informations sur les colonnes d'un modèle.
 
-Bien que le module ORM soit inclus par défaut dans vos installations de Kohana 3.0, il est désactivé par défaut. Pour l'activer modifiez le fichier `application/bootstrap.php` et ajoutez à l'appel [Kohana::modules] le module ORM:
+Bien que le module ORM soit inclus par défaut dans l'installation de Kohana 3, il est désactivé par défaut. Pour l'activer, vous modifiez le fichier `application/bootstrap.php` et ajoutez à l'appel [Kohana::modules] le module ORM:
 
 	Kohana::modules(array(
 		...
@@ -19,11 +19,11 @@ Pour pouvoir utiliser l'ORM, il faut tout d'abord faire hériter vos modèles de
 		...
 	}
 
-Dans l'exemple ci-dessus, le modele cherchera une table `users` dans la base de données par défaut.
+Dans l'exemple ci-dessus, le modèle cherchera une table `users` dans la base de données par défaut.
 
 ### Propriétés d'un modèle ORM
 
-Les propriétés suivantes peuvent être utilisées pour configurer chacuns de vos modèles:
+Les propriétés suivantes peuvent être utilisées pour configurer vos modèles:
 
 Type      | Option          |  Description                         | Valeur par défaut
 ----------|-----------------|--------------------------------------| -------------------------
@@ -83,7 +83,7 @@ Toutes les propriétés d'un modèle sont accessibles en utilisant les méthodes
 	// Change le nom de l'utilisateur
 	$user->name = 'Bob';
 
-Pour stocker des informations/propriétés qui n'ont pas de correspondances dans la table (c'est-à-dire aucune colonnes du même nom que la propriété), il faut utiliser la propriété `_ignored_columns`:
+Pour stocker des informations/propriétés qui n'ont pas de correspondances dans la table (c'est-à-dire aucune colonne du même nom que la propriété), il faut utiliser la propriété `_ignored_columns`:
 
 	class Model_User extends ORM
 	{
@@ -98,7 +98,7 @@ La méthode [ORM::save] est utilisée aussi bien pour créer et sauvegarder de n
 
 	// Création d'un enregistrement
 	$user = ORM::factory('user');
-	$user->name = 'New user';
+	$user->name = 'Nouvel Utilisateur';
 	$user->save();
 
 	// Mise à jour d'un enregistrement
@@ -118,4 +118,4 @@ Vous pouvez mettre à jour plusieurs enregistrements à la fois en utilisant la 
 
 ### Supprimer des enregistrements
 
-La suppression d'enregistrements se fait avec [ORM::delete] et [ORM::delet_all].  Ces méthodes fonctionnement de manière similaire à celles de sauvegarde détaillées plus haut à l'exception du fait que [ORM::delete] peut prendre en argument l'`id` de l'enregistrment à supprimer.
+La suppression d'enregistrements se fait avec [ORM::delete] et [ORM::delet_all].  Ces méthodes fonctionnement de manière similaire aux méthodes de sauvegarde détaillées plus haut à l'exception du fait que [ORM::delete] peut prendre en argument l'`id` de l'enregistrment à supprimer.
